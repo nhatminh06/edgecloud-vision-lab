@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Static replay inspector for EdgeCloud Vision inference scheduling experiments.">
+  <meta name="theme-color" content="#111417">
+  <title>EdgeCloud Vision — experiment replay</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="app.js" defer></script>
+</head>
+<body>
+  <a class="skip-link" href="#workspace">Skip to experiment</a>
+  <header class="topbar">
+    <a class="identity" href="#workspace"><span class="mark" aria-hidden="true">EC</span><span>EdgeCloud Vision</span></a>
+    <div class="run-title"><strong id="top-scenario">loading replay</strong><span id="top-scheduler">—</span></div>
+    <div class="top-state"><span id="schema-label">schema —</span><span class="mode">Replay</span></div>
+    <nav aria-label="Project links">
+      <a href="https://github.com/nhatminh06/edgecloud-vision-lab">GitHub</a>
+      <a href="https://github.com/nhatminh06/edgecloud-vision-lab/blob/main/docs/experiment-format.md">Format</a>
+      <a href="https://github.com/nhatminh06/edgecloud-vision-lab/blob/main/docs/demo.md">Demo guide</a>
+    </nav>
+  </header>
+
+  <main id="workspace">
+    <section class="fixture-notice" id="fixture-notice" hidden>
+      <strong>Sample replay</strong>
+      <span>Synthetic deterministic fixture for interface development. Not benchmark evidence.</span>
+    </section>
+    <section class="capture-notice" id="capture-notice" hidden>
+      <strong>Captured run</strong>
+      <span>Recorded from a local EdgeCloud experiment. Static replay, not a live connection.</span>
+    </section>
+
+    <section class="loading-state" id="loading-state" aria-live="polite">
+      <strong>Loading replay</strong><span>Reading the static experiment artifact.</span>
+    </section>
+    <section class="error-state" id="error-state" hidden role="alert">
+      <strong id="error-title">Replay unavailable</strong>
+      <p id="error-message">The experiment artifact could not be loaded.</p>
+      <a href="https://github.com/nhatminh06/edgecloud-vision-lab">View repository</a>
+    </section>
+
+    <div id="viewer" hidden>
+      <section class="control-strip" aria-label="Replay controls">
+        <div class="transport">
+          <button id="first-button" type="button" aria-label="First frame">|◀</button>
+          <button id="play-button" type="button" aria-label="Play replay" aria-pressed="false">▶</button>
+          <button id="next-button" type="button" aria-label="Next frame">▶|</button>
+        </div>
+        <label class="scrubber-label" for="scrubber"><span id="frame-label">frame — / —</span>
+          <input id="scrubber" type="range" min="0" max="0" value="0">
+        </label>
+        <fieldset class="speed-control"><legend>Speed</legend>
+          <button type="button" data-speed="0.5">0.5×</button>
+          <button class="active" type="button" data-speed="1" aria-pressed="true">1×</button>
+          <button type="button" data-speed="2">2×</button>
+        </fieldset>
+        <div class="position-readout"><span>EVENT</span><strong id="sequence-value">—</strong></div>
+      </section>
+
+      <section class="phase-track panel" aria-labelledby="phase-heading">
+        <div class="panel-heading"><h2 id="phase-heading">Scenario timeline</h2><span>recorded boundaries</span></div>
+        <div id="phase-timeline" class="phase-timeline"></div>
+      </section>
+
+      <div class="inspector-grid">
+        <aside class="run-panel panel" aria-labelledby="run-heading">
+          <div class="panel-heading"><h2 id="run-heading">Run metadata</h2><span id="evidence-kind">replay</span></div>
+          <dl class="property-list" id="run-properties"></dl>
+          <div class="mini-summary" id="mini-summary"></div>
+        </aside>
+
+        <section class="decision-panel panel" aria-labelledby="decision-heading">
+          <div class="panel-heading"><h2 id="decision-heading">Routing decision</h2><span id="current-profile">—</span></div>
+          <div id="decision-bars" class="decision-bars"></div>
+          <div class="decision-detail">
+            <dl>
+              <div><dt>Selected</dt><dd id="selected-worker">—</dd></div>
+              <div><dt>Executed</dt><dd id="executed-worker">—</dd></div>
+              <div><dt>Fallback</dt><dd id="fallback-used">—</dd></div>
+            </dl>
+            <div class="reason"><span>reason code</span><code id="decision-reason">—</code><p id="fallback-reason"></p></div>
+          </div>
+        </section>
+
+        <aside class="workers-panel panel" aria-labelledby="workers-heading">
+          <div class="panel-heading"><h2 id="workers-heading">Worker inspector</h2><span>current frame</span></div>
+          <div class="worker edge-worker" id="edge-worker"></div>
+          <div class="worker remote-worker" id="remote-worker"></div>
+        </aside>
+
+        <section class="chart-panel panel" aria-labelledby="chart-heading">
+          <div class="panel-heading"><h2 id="chart-heading">Latency trace</h2><div class="legend"><span class="edge-key">edge EWMA</span><span class="remote-key">remote EWMA</span><span class="observed-key">observed</span></div></div>
+          <div class="chart-wrap" id="chart-wrap">
+            <svg id="latency-chart" viewBox="0 0 900 300" role="img" aria-labelledby="chart-title chart-description">
+              <title id="chart-title">Latency estimates and observed request latency by frame</title>
+              <desc id="chart-description">Loading experiment trace.</desc>
+            </svg>
+          </div>
+        </section>
+
+        <section class="events-panel panel" aria-labelledby="events-heading">
+          <div class="panel-heading"><h2 id="events-heading">Event trace</h2><span>select an event</span></div>
+          <div class="event-columns" aria-hidden="true"><span>frame</span><span>route</span><span>latency</span><span>reason / event</span></div>
+          <ol id="event-list" class="event-list"></ol>
+        </section>
+      </div>
+
+      <section class="method-section" id="method">
+        <div class="section-label">Method / evidence</div>
+        <div class="method-grid">
+          <article><h2>Measured</h2><p>Worker model timing, scheduler-observed request latency, and remote HTTP round-trip timing originate from worker execution.</p></article>
+          <article><h2>Estimated</h2><p>Edge and remote EWMA values are scheduler state derived from prior successful observations.</p></article>
+          <article><h2>Controlled</h2><p>Injected delay and forced availability are deterministic experiment inputs, explicitly separated from measured timing.</p></article>
+          <article><h2>Replayed</h2><p>This page reads static JSON. Python, PyTorch, the scheduler, and inference workers are not running in GitHub Pages.</p></article>
+        </div>
+      </section>
+
+      <section class="architecture-section" aria-labelledby="architecture-heading">
+        <div><div class="section-label">System path</div><h2 id="architecture-heading">Measurement produces the replay.</h2><p>EdgeCloud Vision compares local and HTTP inference under controlled conditions. Decisions and timings are recorded as evidence for later inspection.</p></div>
+        <div class="schematic" role="img" aria-label="Input enters a scheduler, routes to edge or remote model workers, and records JSON Lines that are exported to static replay JSON for GitHub Pages.">
+          <div class="node">input</div><span>→</span><div class="node strong">scheduler</div><span>→</span><div class="fork"><div class="node edge-node">edge → model</div><div class="node remote-node">HTTP → remote → model</div></div><span>→</span><div class="node">recorder<br><small>JSONL → replay JSON</small></div>
+        </div>
+      </section>
+
+      <footer><p>EdgeCloud Vision is an ML-systems experiment for explainable routing across local and remote computer-vision workers.</p><a href="https://github.com/nhatminh06/edgecloud-vision-lab">Source and methodology</a></footer>
+    </div>
+  </main>
+</body>
+</html>

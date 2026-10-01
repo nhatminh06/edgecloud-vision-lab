@@ -4,6 +4,12 @@ EdgeCloud Vision measures computer-vision inference across local and HTTP worker
 a local object-detection pipeline for images, video files, and webcams, plus a service boundary
 for running the same inference engine remotely.
 
+[Captured experiment replay](https://nhatminh06.github.io/edgecloud-vision-lab/) ·
+[Recorded demo guide](docs/demo.md) ·
+[Experiment format](docs/experiment-format.md)
+
+The public website is a static experiment replay viewer, not a live inference dashboard.
+
 ## Architecture
 
 ```text
@@ -226,6 +232,36 @@ curl http://127.0.0.1:8000/health
 ```
 
 ## Experiments
+
+### Deterministic experiment recording
+
+The scheduler CLI can record the stable replay event format while retaining its normal JSON
+Lines output on stdout:
+
+```bash
+edgecloud-run \
+  --video examples/input.mp4 \
+  --scheduler latency_aware \
+  --remote-url http://127.0.0.1:8000 \
+  --scenario adaptive-failover \
+  --record outputs/runs/adaptive-failover.jsonl
+```
+
+The canonical scenario starts with normal workers, adds 150 ms of explicit edge delay at frame
+20, makes remote unavailable at frame 50, and restores normal controls at frame 70. Profiles
+change worker conditions only; routing continues to use measured scheduler observations. Static
+`--demo-profile` and `--scenario` are mutually exclusive, and recording remains optional.
+
+Injected delay and availability are recorded independently from model, round-trip, and observed
+request timing. Validate and export a recording for static visualization with:
+
+```bash
+edgecloud-export-replay \
+  outputs/runs/adaptive-failover.jsonl \
+  demo-data/adaptive-failover.json
+```
+
+The event contract is documented in [docs/experiment-format.md](docs/experiment-format.md).
 
 Install the optional plotting dependency and run a single development experiment:
 

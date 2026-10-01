@@ -1,0 +1,4172 @@
+{
+  "schema_version": 1,
+  "run": {
+    "schema_version": 1,
+    "event_type": "run_start",
+    "run_id": "portfolio-adaptive-failover-2026-09-30",
+    "sequence": 0,
+    "elapsed_ms": 0.0,
+    "scheduler": "latency_aware",
+    "latency_alpha": 0.3,
+    "source": {
+      "type": "video",
+      "name": "edgecloud-demo-100.avi"
+    },
+    "scenario": "adaptive-failover",
+    "initial_profile": "normal",
+    "model": "ssdlite320_mobilenet_v3_large",
+    "notes": {
+      "observed_timing_may_contain_injected_delay": true
+    }
+  },
+  "events": [
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 1,
+      "elapsed_ms": 63.470326000242494,
+      "frame_index": 0,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "cold_start_edge",
+        "edge_estimate_ms": 60.20606599849998,
+        "remote_estimate_ms": null
+      },
+      "timing": {
+        "observed_request_ms": 60.20606599849998,
+        "model_total_ms": 60.14086299910559,
+        "model_inference_ms": 55.45323700061999,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 0
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 2,
+      "elapsed_ms": 161.69022800022503,
+      "frame_index": 1,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "cold_start_remote",
+        "edge_estimate_ms": 60.20606599849998,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 94.8847180006851,
+        "model_total_ms": 82.11777699762024,
+        "model_inference_ms": 76.49538599798689,
+        "round_trip_ms": 91.12638299848186
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 3,
+      "elapsed_ms": 226.1538569982804,
+      "frame_index": 2,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 60.80964799839421,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 62.21800599814742,
+        "model_total_ms": 61.31695800286252,
+        "model_inference_ms": 54.370654997910606,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 4,
+      "elapsed_ms": 289.8358960010228,
+      "frame_index": 3,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 60.88860499934526,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 61.07283800156438,
+        "model_total_ms": 61.0237139990204,
+        "model_inference_ms": 56.65061499894364,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 5,
+      "elapsed_ms": 353.90699400159065,
+      "frame_index": 4,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 61.077759198713466,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 61.519118997239275,
+        "model_total_ms": 61.46112999704201,
+        "model_inference_ms": 56.45895799898426,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 0
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 6,
+      "elapsed_ms": 414.80635599873494,
+      "frame_index": 5,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 60.385647739023256,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 58.77072099974612,
+        "model_total_ms": 58.039247000124305,
+        "model_inference_ms": 54.571679000218865,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 0
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 7,
+      "elapsed_ms": 477.55983200113405,
+      "frame_index": 6,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 60.5488124167906,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 60.929529998247745,
+        "model_total_ms": 60.87978200230282,
+        "model_inference_ms": 55.73309700048412,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 8,
+      "elapsed_ms": 547.5068779996946,
+      "frame_index": 7,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 62.939631091105525,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 68.51820799784036,
+        "model_total_ms": 67.91261699981987,
+        "model_inference_ms": 64.07492799917236,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 9,
+      "elapsed_ms": 605.9664470012649,
+      "frame_index": 8,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 61.093070164153374,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 56.78442800126504,
+        "model_total_ms": 56.7410639996524,
+        "model_inference_ms": 49.686680002196226,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 10,
+      "elapsed_ms": 669.8514150011761,
+      "frame_index": 9,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 61.49901481568591,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 62.44621900259517,
+        "model_total_ms": 61.666319001233205,
+        "model_inference_ms": 58.69674200221198,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 11,
+      "elapsed_ms": 736.106855001708,
+      "frame_index": 10,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 62.379717071081004,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 64.43468900033622,
+        "model_total_ms": 64.38766499923076,
+        "model_inference_ms": 60.229424001590814,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 12,
+      "elapsed_ms": 804.5088850012689,
+      "frame_index": 11,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 63.45649744973473,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 65.96898499992676,
+        "model_total_ms": 64.71226700159605,
+        "model_inference_ms": 60.0945039986982,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 13,
+      "elapsed_ms": 864.7829670007923,
+      "frame_index": 12,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 62.07510321505196,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 58.85185000079218,
+        "model_total_ms": 58.81037500148523,
+        "model_inference_ms": 53.964588998496765,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 14,
+      "elapsed_ms": 925.8029029988393,
+      "frame_index": 13,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 61.3714747511417,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 59.72967500201776,
+        "model_total_ms": 59.12493800133234,
+        "model_inference_ms": 55.88546900253277,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 0
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 15,
+      "elapsed_ms": 989.0973100009433,
+      "frame_index": 14,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 61.060290525937525,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 60.33419400046114,
+        "model_total_ms": 60.29406800007564,
+        "model_inference_ms": 55.54460500206915,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 16,
+      "elapsed_ms": 1050.7341240008827,
+      "frame_index": 15,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 60.847487767800274,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 60.35094799881335,
+        "model_total_ms": 59.51947799985646,
+        "model_inference_ms": 56.34823499713093,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 17,
+      "elapsed_ms": 1108.110293000209,
+      "frame_index": 16,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 59.408167937324855,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 56.049754999548895,
+        "model_total_ms": 55.97102599858772,
+        "model_inference_ms": 51.68204700021306,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 18,
+      "elapsed_ms": 1171.2128479994135,
+      "frame_index": 17,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 60.08361495621158,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 61.659658000280615,
+        "model_total_ms": 60.84520500007784,
+        "model_inference_ms": 57.600492000347,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 19,
+      "elapsed_ms": 1232.1587439982977,
+      "frame_index": 18,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 59.9132254699902,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 59.51565000214032,
+        "model_total_ms": 59.465397000167286,
+        "model_inference_ms": 54.681276000337675,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 20,
+      "elapsed_ms": 1299.3870559985226,
+      "frame_index": 19,
+      "profile": "normal",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 61.755714329113836,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 66.05485500040231,
+        "model_total_ms": 65.33048500205041,
+        "model_inference_ms": 61.79739700019127,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "profile_change",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 21,
+      "elapsed_ms": 1300.5972050013952,
+      "frame_index": 20,
+      "from_profile": "normal",
+      "to_profile": "edge_hot"
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 22,
+      "elapsed_ms": 1540.5638459997135,
+      "frame_index": 20,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 94.8847180006851
+      },
+      "timing": {
+        "observed_request_ms": 239.76806400241912,
+        "model_total_ms": 89.64675099923625,
+        "model_inference_ms": 84.9913120000565,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 23,
+      "elapsed_ms": 1615.8697009996104,
+      "frame_index": 21,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 88.61294530033774
+      },
+      "timing": {
+        "observed_request_ms": 73.97880899952725,
+        "model_total_ms": 69.28640399928554,
+        "model_inference_ms": 66.26817999858758,
+        "round_trip_ms": 72.91185400026734
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 24,
+      "elapsed_ms": 1689.4075730015174,
+      "frame_index": 22,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 83.51171670950862
+      },
+      "timing": {
+        "observed_request_ms": 71.608849997574,
+        "model_total_ms": 66.77808500171523,
+        "model_inference_ms": 63.132660998235224,
+        "round_trip_ms": 70.52958499843953
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 0
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 25,
+      "elapsed_ms": 1761.3580329998513,
+      "frame_index": 23,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 79.49130189658536
+      },
+      "timing": {
+        "observed_request_ms": 70.1103339997644,
+        "model_total_ms": 65.39665500167757,
+        "model_inference_ms": 61.69543199939653,
+        "round_trip_ms": 68.82179000240285
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 26,
+      "elapsed_ms": 1829.3785470013972,
+      "frame_index": 24,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 75.66037782821113
+      },
+      "timing": {
+        "observed_request_ms": 66.7215550020046,
+        "model_total_ms": 62.64803799786023,
+        "model_inference_ms": 59.14941499941051,
+        "round_trip_ms": 65.64697900103056
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 3
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 27,
+      "elapsed_ms": 1907.2684860002482,
+      "frame_index": 25,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 75.59935727952553
+      },
+      "timing": {
+        "observed_request_ms": 75.45697599925916,
+        "model_total_ms": 70.62285699794302,
+        "model_inference_ms": 66.56383299923618,
+        "round_trip_ms": 74.08209099958185
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 28,
+      "elapsed_ms": 1987.1928989996377,
+      "frame_index": 26,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 76.37138079486373
+      },
+      "timing": {
+        "observed_request_ms": 78.17276899731951,
+        "model_total_ms": 71.63664100153255,
+        "model_inference_ms": 67.30488600078388,
+        "round_trip_ms": 76.34427800076082
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 3
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 29,
+      "elapsed_ms": 2055.6455549995007,
+      "frame_index": 27,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 73.583867856435
+      },
+      "timing": {
+        "observed_request_ms": 67.07967100010137,
+        "model_total_ms": 62.64419699800783,
+        "model_inference_ms": 57.7637770002184,
+        "round_trip_ms": 65.91225699958159
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 4
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 30,
+      "elapsed_ms": 2130.6066700017254,
+      "frame_index": 28,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 73.50562069897757
+      },
+      "timing": {
+        "observed_request_ms": 73.32304399824352,
+        "model_total_ms": 68.11256900255103,
+        "model_inference_ms": 64.26143499993486,
+        "round_trip_ms": 71.70008799948846
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 3
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 31,
+      "elapsed_ms": 2225.066966999293,
+      "frame_index": 29,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 79.29056038864714
+      },
+      "timing": {
+        "observed_request_ms": 92.78875299787614,
+        "model_total_ms": 87.43224399950122,
+        "model_inference_ms": 83.43574399987119,
+        "round_trip_ms": 91.52032200290705
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 3
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 32,
+      "elapsed_ms": 2355.0281880015973,
+      "frame_index": 30,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 93.61160957135766
+      },
+      "timing": {
+        "observed_request_ms": 127.02739099768223,
+        "model_total_ms": 119.54252400028054,
+        "model_inference_ms": 102.76769099800731,
+        "round_trip_ms": 125.66167099794257
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 3
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 33,
+      "elapsed_ms": 2442.4330270012433,
+      "frame_index": 31,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 91.25980410005867
+      },
+      "timing": {
+        "observed_request_ms": 85.77225800036103,
+        "model_total_ms": 81.00182800262701,
+        "model_inference_ms": 75.67435500095598,
+        "round_trip_ms": 84.64327700130525
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 34,
+      "elapsed_ms": 2511.262757001532,
+      "frame_index": 32,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 84.13930707102014
+      },
+      "timing": {
+        "observed_request_ms": 67.5248140032636,
+        "model_total_ms": 63.387100999534596,
+        "model_inference_ms": 60.27746499967179,
+        "round_trip_ms": 66.40191900078207
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 35,
+      "elapsed_ms": 2579.5301649995963,
+      "frame_index": 33,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 78.96679795041695
+      },
+      "timing": {
+        "observed_request_ms": 66.89761000234284,
+        "model_total_ms": 62.82738200025051,
+        "model_inference_ms": 59.58003900013864,
+        "round_trip_ms": 65.79811800111202
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 36,
+      "elapsed_ms": 2650.25331400102,
+      "frame_index": 34,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 76.12770026490125
+      },
+      "timing": {
+        "observed_request_ms": 69.50313899869798,
+        "model_total_ms": 64.91102300060447,
+        "model_inference_ms": 60.91338499754784,
+        "round_trip_ms": 68.20130699998117
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 37,
+      "elapsed_ms": 2723.7752360015293,
+      "frame_index": 35,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 74.91429588551318
+      },
+      "timing": {
+        "observed_request_ms": 72.08301900027436,
+        "model_total_ms": 67.33761099894764,
+        "model_inference_ms": 63.965430999815,
+        "round_trip_ms": 70.75186099973507
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 38,
+      "elapsed_ms": 2793.630915999529,
+      "frame_index": 36,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 73.00443111939006
+      },
+      "timing": {
+        "observed_request_ms": 68.54807999843615,
+        "model_total_ms": 64.24296899785986,
+        "model_inference_ms": 61.14719500328647,
+        "round_trip_ms": 67.25113300126395
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 39,
+      "elapsed_ms": 2861.6681739986234,
+      "frame_index": 37,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 71.13578268404945
+      },
+      "timing": {
+        "observed_request_ms": 66.77560300158802,
+        "model_total_ms": 62.298586999531835,
+        "model_inference_ms": 59.0745160006918,
+        "round_trip_ms": 65.48900499910815
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 3
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 40,
+      "elapsed_ms": 2932.635000001028,
+      "frame_index": 38,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 70.71282027795068
+      },
+      "timing": {
+        "observed_request_ms": 69.72590799705358,
+        "model_total_ms": 65.16263400044409,
+        "model_inference_ms": 61.789865998434834,
+        "round_trip_ms": 68.47863700022572
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 41,
+      "elapsed_ms": 3006.007928001054,
+      "frame_index": 39,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 71.10789559438572
+      },
+      "timing": {
+        "observed_request_ms": 72.02973799940082,
+        "model_total_ms": 67.05089099705219,
+        "model_inference_ms": 63.08524599808152,
+        "round_trip_ms": 70.8871540009568
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 42,
+      "elapsed_ms": 3079.586708001443,
+      "frame_index": 40,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 71.42026651608488
+      },
+      "timing": {
+        "observed_request_ms": 72.14913200004958,
+        "model_total_ms": 67.28668499999912,
+        "model_inference_ms": 62.96950999967521,
+        "round_trip_ms": 70.92099700093968
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 43,
+      "elapsed_ms": 3150.8705980013474,
+      "frame_index": 41,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 70.99359106187636
+      },
+      "timing": {
+        "observed_request_ms": 69.99801500205649,
+        "model_total_ms": 65.31751900183735,
+        "model_inference_ms": 61.61331700059236,
+        "round_trip_ms": 68.72868599748472
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 44,
+      "elapsed_ms": 3225.9979310001654,
+      "frame_index": 42,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 71.65025864330815
+      },
+      "timing": {
+        "observed_request_ms": 73.18248299998231,
+        "model_total_ms": 67.71292199846357,
+        "model_inference_ms": 63.56228699951316,
+        "round_trip_ms": 71.78915699842037
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 45,
+      "elapsed_ms": 3298.9032990008127,
+      "frame_index": 43,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 71.54358505070614
+      },
+      "timing": {
+        "observed_request_ms": 71.29468000130146,
+        "model_total_ms": 66.27631700030179,
+        "model_inference_ms": 62.385733999690274,
+        "round_trip_ms": 70.009110000683
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 4
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 46,
+      "elapsed_ms": 3371.710572999291,
+      "frame_index": 44,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 71.41771103563116
+      },
+      "timing": {
+        "observed_request_ms": 71.12400500045624,
+        "model_total_ms": 66.07658400025684,
+        "model_inference_ms": 62.33351899936679,
+        "round_trip_ms": 69.75643500118167
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 47,
+      "elapsed_ms": 3452.1633299991663,
+      "frame_index": 45,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 73.69139482523312
+      },
+      "timing": {
+        "observed_request_ms": 78.99665700097103,
+        "model_total_ms": 74.02259800073807,
+        "model_inference_ms": 70.86896999680903,
+        "round_trip_ms": 77.63030699788942
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 48,
+      "elapsed_ms": 3530.3637920005713,
+      "frame_index": 46,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 74.5589357773162
+      },
+      "timing": {
+        "observed_request_ms": 76.58319799884339,
+        "model_total_ms": 71.34098700043978,
+        "model_inference_ms": 66.66253200091887,
+        "round_trip_ms": 75.23912100077723
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 49,
+      "elapsed_ms": 3601.4945399983844,
+      "frame_index": 47,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 73.06210774407575
+      },
+      "timing": {
+        "observed_request_ms": 69.56950899984804,
+        "model_total_ms": 64.8315319995163,
+        "model_inference_ms": 61.5214389981702,
+        "round_trip_ms": 68.26100399848656
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 50,
+      "elapsed_ms": 3672.446264001337,
+      "frame_index": 48,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 71.87901432126087
+      },
+      "timing": {
+        "observed_request_ms": 69.11846300135949,
+        "model_total_ms": 63.10615999973379,
+        "model_inference_ms": 59.63505999898189,
+        "round_trip_ms": 67.71838599888724
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 51,
+      "elapsed_ms": 3749.3028639983095,
+      "frame_index": 49,
+      "profile": "edge_hot",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "remote",
+        "reason": "remote_lower_estimated_latency",
+        "edge_estimate_ms": 115.15941923110542,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 75.04369099842734,
+        "model_total_ms": 70.42309199823649,
+        "model_inference_ms": 67.55158099986147,
+        "round_trip_ms": 73.88967200313346
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 150.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "profile_change",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 52,
+      "elapsed_ms": 3750.629097001365,
+      "frame_index": 50,
+      "from_profile": "edge_hot",
+      "to_profile": "cloud_down"
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 53,
+      "elapsed_ms": 3819.9455389985815,
+      "frame_index": 50,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "edge",
+        "reason": "fallback_to_edge",
+        "edge_estimate_ms": 101.32361476096054,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 69.05992099927971,
+        "model_total_ms": 68.99192399941967,
+        "model_inference_ms": 58.657043999119196,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": true,
+        "reason": "WorkerUnavailableError: remote disabled by demo profile"
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 54,
+      "elapsed_ms": 3881.9726969995827,
+      "frame_index": 51,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "edge",
+        "reason": "fallback_to_edge",
+        "edge_estimate_ms": 89.1191180327773,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 60.65648399817292,
+        "model_total_ms": 60.01865600046585,
+        "model_inference_ms": 56.37317500077188,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": true,
+        "reason": "WorkerUnavailableError: remote disabled by demo profile"
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 55,
+      "elapsed_ms": 3944.939796001563,
+      "frame_index": 52,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "edge",
+        "reason": "fallback_to_edge",
+        "edge_estimate_ms": 80.84541952369028,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 61.55056900024647,
+        "model_total_ms": 61.499236999225104,
+        "model_inference_ms": 55.76188000122784,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": true,
+        "reason": "WorkerUnavailableError: remote disabled by demo profile"
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 56,
+      "elapsed_ms": 4009.36008500139,
+      "frame_index": 53,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "edge",
+        "reason": "fallback_to_edge",
+        "edge_estimate_ms": 75.52515186608471,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 63.12214900026447,
+        "model_total_ms": 62.658484999701614,
+        "model_inference_ms": 59.32399499943131,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": true,
+        "reason": "WorkerUnavailableError: remote disabled by demo profile"
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 57,
+      "elapsed_ms": 4072.1168509990093,
+      "frame_index": 54,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "remote",
+        "executed_worker": "edge",
+        "reason": "fallback_to_edge",
+        "edge_estimate_ms": 71.2529734060953,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 61.29660000078729,
+        "model_total_ms": 61.224829998536734,
+        "model_inference_ms": 56.328233997192,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": true,
+        "reason": "WorkerUnavailableError: remote disabled by demo profile"
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 58,
+      "elapsed_ms": 4140.872463998676,
+      "frame_index": 55,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 70.02577618362112,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 67.16231599784805,
+        "model_total_ms": 66.38716999805183,
+        "model_inference_ms": 62.653156001033494,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 3
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 59,
+      "elapsed_ms": 4213.542867000797,
+      "frame_index": 56,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 70.29076582816904,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 70.90907499878085,
+        "model_total_ms": 70.85898399964208,
+        "model_inference_ms": 65.04045200199471,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 3
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 60,
+      "elapsed_ms": 4285.0330190012755,
+      "frame_index": 57,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 69.95554797917634,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 69.17337299819337,
+        "model_total_ms": 68.33772900063195,
+        "model_inference_ms": 64.06777799929841,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 3
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 61,
+      "elapsed_ms": 4349.564047999593,
+      "frame_index": 58,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 67.80331618445632,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 62.781441996776266,
+        "model_total_ms": 62.72983700182522,
+        "model_inference_ms": 58.16052999944077,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 3
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 62,
+      "elapsed_ms": 4418.005550000089,
+      "frame_index": 59,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 67.29340222901342,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 66.10360299964668,
+        "model_total_ms": 64.9979740010167,
+        "model_inference_ms": 61.29498399968725,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 63,
+      "elapsed_ms": 4484.907038000529,
+      "frame_index": 60,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 66.62593036088343,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 65.06849600191345,
+        "model_total_ms": 65.01451400254155,
+        "model_inference_ms": 60.34144700242905,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 64,
+      "elapsed_ms": 4556.285812999704,
+      "frame_index": 61,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 67.4168730524159,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 69.26240599932498,
+        "model_total_ms": 68.5305100014375,
+        "model_inference_ms": 63.83730900051887,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 65,
+      "elapsed_ms": 4619.1701399984595,
+      "frame_index": 62,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 65.3147013365022,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 60.40963399937027,
+        "model_total_ms": 60.36310900162789,
+        "model_inference_ms": 56.64990500008571,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 66,
+      "elapsed_ms": 4690.570474998822,
+      "frame_index": 63,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 66.72988943586512,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 70.03199500104529,
+        "model_total_ms": 68.8762850004423,
+        "model_inference_ms": 64.89232500098296,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 67,
+      "elapsed_ms": 4767.560889999004,
+      "frame_index": 64,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 69.28651060485062,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 75.25195999915013,
+        "model_total_ms": 75.20098399982089,
+        "model_inference_ms": 69.52022600307828,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 68,
+      "elapsed_ms": 4835.345703999337,
+      "frame_index": 65,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 68.14710442326111,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 65.48848999955226,
+        "model_total_ms": 64.25158300044131,
+        "model_inference_ms": 60.25517200032482,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 69,
+      "elapsed_ms": 4904.814001998602,
+      "frame_index": 66,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 67.94552169599102,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 67.47516199902748,
+        "model_total_ms": 67.42444900010014,
+        "model_inference_ms": 61.73793300331454,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 70,
+      "elapsed_ms": 4973.362724998879,
+      "frame_index": 67,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 67.31472288705302,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 65.84285899953102,
+        "model_total_ms": 65.79150299876346,
+        "model_inference_ms": 61.08318299811799,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 71,
+      "elapsed_ms": 5042.10806500123,
+      "frame_index": 68,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 67.02996172096738,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 66.3655190001009,
+        "model_total_ms": 65.13296100092703,
+        "model_inference_ms": 61.421985999913886,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 72,
+      "elapsed_ms": 5109.136743001727,
+      "frame_index": 69,
+      "profile": "cloud_down",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 66.57327990461332,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 65.5076889997872,
+        "model_total_ms": 65.45867399836425,
+        "model_inference_ms": 59.82954100181814,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": false,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "profile_change",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 73,
+      "elapsed_ms": 5110.55921300067,
+      "frame_index": 70,
+      "from_profile": "cloud_down",
+      "to_profile": "recovered"
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 74,
+      "elapsed_ms": 5184.199381001235,
+      "frame_index": 70,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 68.6250120328769,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 73.41238699882524,
+        "model_total_ms": 72.85107099960442,
+        "model_inference_ms": 69.17399400117574,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 75,
+      "elapsed_ms": 5247.383197998715,
+      "frame_index": 71,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 66.5827731224374,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 61.817548998078564,
+        "model_total_ms": 61.76482900264091,
+        "model_inference_ms": 56.11769100141828,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 76,
+      "elapsed_ms": 5306.002118999459,
+      "frame_index": 72,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 63.789209985392404,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 57.270895998954074,
+        "model_total_ms": 56.736047998128925,
+        "model_inference_ms": 53.8230329984799,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 77,
+      "elapsed_ms": 5363.4980200004065,
+      "frame_index": 73,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 61.476532789227996,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 56.080285998177715,
+        "model_total_ms": 56.04094400041504,
+        "model_inference_ms": 51.65381099868682,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 78,
+      "elapsed_ms": 5418.673091000528,
+      "frame_index": 74,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 58.817616352804265,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 52.613478001148906,
+        "model_total_ms": 51.95037600060459,
+        "model_inference_ms": 49.16398000204936,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 79,
+      "elapsed_ms": 5478.996675999952,
+      "frame_index": 75,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 58.75199694690606,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 58.59888499981025,
+        "model_total_ms": 58.55192899980466,
+        "model_inference_ms": 53.83479699958116,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 80,
+      "elapsed_ms": 5542.771282998729,
+      "frame_index": 76,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 59.84138366286814,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 62.383286000113,
+        "model_total_ms": 61.66289500106359,
+        "model_inference_ms": 58.49105299785151,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 81,
+      "elapsed_ms": 5611.727773000894,
+      "frame_index": 77,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 61.979525463602656,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 66.96852299864986,
+        "model_total_ms": 66.9262239971431,
+        "model_inference_ms": 61.86992299990379,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 82,
+      "elapsed_ms": 5673.827988000994,
+      "frame_index": 78,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 61.462784924778,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 60.25705700085382,
+        "model_total_ms": 59.75742599912337,
+        "model_inference_ms": 56.61349200090626,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 83,
+      "elapsed_ms": 5741.5149260014,
+      "frame_index": 79,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 62.90351064763144,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 66.26520400095615,
+        "model_total_ms": 66.2255550014379,
+        "model_inference_ms": 60.88176900084363,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 84,
+      "elapsed_ms": 5802.35884799913,
+      "frame_index": 80,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 61.59939485323915,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 58.55645799965714,
+        "model_total_ms": 57.74602300152765,
+        "model_inference_ms": 54.93445300089661,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 85,
+      "elapsed_ms": 5875.559428000997,
+      "frame_index": 81,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 64.32520569757895,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 70.68543100103852,
+        "model_total_ms": 70.63466800173046,
+        "model_inference_ms": 65.33069600118324,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 86,
+      "elapsed_ms": 5936.502976001066,
+      "frame_index": 82,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 62.66219628896555,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 58.78184100220096,
+        "model_total_ms": 58.36668900155928,
+        "model_inference_ms": 55.127159001131076,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 87,
+      "elapsed_ms": 6000.665984000079,
+      "frame_index": 83,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 62.72663890194037,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 62.8770049988816,
+        "model_total_ms": 62.80205699658836,
+        "model_inference_ms": 58.08912000065902,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 88,
+      "elapsed_ms": 6069.257653998648,
+      "frame_index": 84,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 63.81505813187039,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 66.3547030017071,
+        "model_total_ms": 65.68551899908925,
+        "model_inference_ms": 62.22487400009413,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 89,
+      "elapsed_ms": 6140.018857000541,
+      "frame_index": 85,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 65.43516399236523,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 69.21541100018658,
+        "model_total_ms": 69.17191899992758,
+        "model_inference_ms": 63.1567320015165,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 0
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 90,
+      "elapsed_ms": 6208.141817998694,
+      "frame_index": 86,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 65.74319379480994,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 66.46193000051426,
+        "model_total_ms": 66.05693000165047,
+        "model_inference_ms": 63.03933900198899,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 0
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 91,
+      "elapsed_ms": 6280.344288999913,
+      "frame_index": 87,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 67.19541255621803,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 70.58392299950356,
+        "model_total_ms": 70.51319399761269,
+        "model_inference_ms": 65.64056500064908,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 0
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 92,
+      "elapsed_ms": 6374.646563999704,
+      "frame_index": 88,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 72.4392197898278,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 84.67477000158397,
+        "model_total_ms": 84.07216600244283,
+        "model_inference_ms": 77.6878239994403,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 93,
+      "elapsed_ms": 6447.77207000152,
+      "frame_index": 89,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 71.85859025281016,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 70.50378799976897,
+        "model_total_ms": 70.44102900181315,
+        "model_inference_ms": 65.074090998678,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 94,
+      "elapsed_ms": 6513.277547001053,
+      "frame_index": 90,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 69.36353607760714,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 63.541743002133444,
+        "model_total_ms": 63.02384099763003,
+        "model_inference_ms": 59.24355299794115,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 0
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 95,
+      "elapsed_ms": 6575.072609000927,
+      "frame_index": 91,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 66.64881025380271,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 60.31444999825908,
+        "model_total_ms": 59.95266800164245,
+        "model_inference_ms": 54.45537999912631,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 0
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 96,
+      "elapsed_ms": 6641.628019999189,
+      "frame_index": 92,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 66.18520187771051,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 65.10344900016207,
+        "model_total_ms": 64.68561700239661,
+        "model_inference_ms": 60.088455997174606,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 97,
+      "elapsed_ms": 6708.777061998262,
+      "frame_index": 93,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 65.93359071509553,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 65.34649800232728,
+        "model_total_ms": 65.2970049995929,
+        "model_inference_ms": 60.9313850000035,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 0
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 98,
+      "elapsed_ms": 6778.89241199955,
+      "frame_index": 94,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 66.58101090123625,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 68.09165800223127,
+        "model_total_ms": 68.03842400040594,
+        "model_inference_ms": 62.91863400110742,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 0
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 99,
+      "elapsed_ms": 6848.608760999923,
+      "frame_index": 95,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 67.09810563160582,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 68.30466000246815,
+        "model_total_ms": 67.60636000035447,
+        "model_inference_ms": 63.918037001712946,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 100,
+      "elapsed_ms": 6916.896037000697,
+      "frame_index": 96,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 67.02483704228601,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 66.8538770005398,
+        "model_total_ms": 66.80544299888425,
+        "model_inference_ms": 61.21167300079833,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 101,
+      "elapsed_ms": 6989.039239000704,
+      "frame_index": 97,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 67.95699372892115,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 70.13202599773649,
+        "model_total_ms": 69.22397900052601,
+        "model_inference_ms": 65.25371699899551,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 102,
+      "elapsed_ms": 7059.723205999035,
+      "frame_index": 98,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 68.30528990972621,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 69.11798099827138,
+        "model_total_ms": 69.06829500076128,
+        "model_inference_ms": 63.63937499918393,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 2
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "inference",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 103,
+      "elapsed_ms": 7131.481887001428,
+      "frame_index": 99,
+      "profile": "recovered",
+      "scheduler": "latency_aware",
+      "decision": {
+        "selected_worker": "edge",
+        "executed_worker": "edge",
+        "reason": "edge_lower_estimated_latency",
+        "edge_estimate_ms": 68.93453363704634,
+        "remote_estimate_ms": 72.82841732441081
+      },
+      "timing": {
+        "observed_request_ms": 70.40276900079334,
+        "model_total_ms": 69.8622300005809,
+        "model_inference_ms": 66.04982299904805,
+        "round_trip_ms": null
+      },
+      "fallback": {
+        "used": false,
+        "reason": null
+      },
+      "workers": {
+        "edge": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        },
+        "remote": {
+          "available": true,
+          "injected_delay_ms": 0.0
+        }
+      },
+      "detections": {
+        "count": 1
+      },
+      "error": null
+    },
+    {
+      "schema_version": 1,
+      "event_type": "run_end",
+      "run_id": "portfolio-adaptive-failover-2026-09-30",
+      "sequence": 104,
+      "elapsed_ms": 7132.043698999041,
+      "summary": {
+        "total_frames": 100,
+        "successful_frames": 100,
+        "failed_frames": 0,
+        "edge_executions": 70,
+        "remote_executions": 30,
+        "fallback_count": 5,
+        "worker_switches": 4,
+        "mean_observed_latency_ms": 69.46347993991367,
+        "scenario_duration_ms": 7132.043698999041
+      }
+    }
+  ]
+}

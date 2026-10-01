@@ -5,6 +5,7 @@ from dataclasses import dataclass, replace
 from time import sleep
 from typing import Any
 
+from edgecloud.demo.profiles import DemoProfile
 from edgecloud.inference.engine import Image
 from edgecloud.workers.errors import WorkerUnavailableError
 from edgecloud.workers.models import InferenceWorker, WorkerResult
@@ -43,3 +44,11 @@ class ControlledWorker:
     def reset(self) -> None:
         self.delay_ms = 0.0
         self.available = True
+
+    def apply(self, profile: DemoProfile) -> None:
+        if self.worker_type == "edge":
+            self.delay_ms = profile.edge_delay_ms
+            self.available = profile.edge_available
+        else:
+            self.delay_ms = profile.remote_delay_ms
+            self.available = profile.remote_available

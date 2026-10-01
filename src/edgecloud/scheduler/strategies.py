@@ -209,9 +209,14 @@ class LatencyAwareScheduler:
         # exactly the same decision state.
         selected_worker = self.edge_worker if selected_worker_type == "edge" else self.remote_worker
         fallback = selected_worker_type != worker_result.worker_type
+        selected_worker_id = (
+            getattr(selected_worker, "worker_id", f"{selected_worker_type}-unavailable")
+            if fallback
+            else worker_result.worker_id
+        )
         return ScheduledResult(
             strategy=self.strategy,
-            selected_worker_id=selected_worker.worker_id,
+            selected_worker_id=selected_worker_id,
             selected_worker_type=selected_worker_type,
             executed_worker_id=worker_result.worker_id,
             executed_worker_type=worker_result.worker_type,

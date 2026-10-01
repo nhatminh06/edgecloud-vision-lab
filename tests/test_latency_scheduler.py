@@ -38,6 +38,20 @@ class FakeWorker:
         )
 
 
+@dataclass
+class IdentityFromResultWorker:
+    worker_type: str
+
+    def infer(self, image: np.ndarray) -> WorkerResult:
+        return WorkerResult(
+            detections=(),
+            timing=TimingMetrics(1, 2, 3, 6),
+            worker_id=f"{self.worker_type}-reported",
+            worker_type=self.worker_type,
+            backend="fake",
+        )
+
+
 class SequenceClock:
     def __init__(self, *values: float) -> None:
         self._values: Iterator[float] = iter(values)
@@ -86,6 +100,20 @@ def test_cold_start_samples_edge_then_remote_from_observations() -> None:
     assert second.latency_decision.reason == "cold_start_remote"
     assert scheduler.edge_sample_count == 1
     assert scheduler.remote_sample_count == 1
+
+
+def test_worker_identity_may_be_reported_only_in_result() -> None:
+    scheduler = LatencyAwareScheduler(
+        IdentityFromResultWorker("edge"),
+        IdentityFromResultWorker("remote"),
+        clock=SequenceClock(0, 0.010, 1, 1.020),
+    )
+
+    edge_result = scheduler.infer(frame())
+    remote_result = scheduler.infer(frame())
+
+    assert edge_result.selected_worker_id == "edge-reported"
+    assert remote_result.selected_worker_id == "remote-reported"
 
 
 @pytest.mark.parametrize(

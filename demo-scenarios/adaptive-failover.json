@@ -1,0 +1,10 @@
+{
+  "name": "adaptive-failover",
+  "description": "Deterministic frame-index controls for the recorded adaptive scheduling demo.",
+  "phases": [
+    {"start_frame": 0, "profile": "normal"},
+    {"start_frame": 20, "profile": "edge_hot"},
+    {"start_frame": 50, "profile": "cloud_down"},
+    {"start_frame": 70, "profile": "recovered"}
+  ]
+}

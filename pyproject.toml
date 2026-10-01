@@ -36,6 +36,7 @@ edgecloud-run = "edgecloud.scheduler_cli:main"
 edgecloud-serve = "edgecloud.service_cli:main"
 edgecloud-telemetry = "edgecloud.telemetry_cli:main"
 edgecloud-experiment = "edgecloud.experiment_cli:main"
+edgecloud-export-replay = "edgecloud.replay_cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/edgecloud"]
