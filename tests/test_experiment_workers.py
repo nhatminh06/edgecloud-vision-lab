@@ -5,7 +5,7 @@ from dataclasses import dataclass
 import numpy as np
 import pytest
 
-from edgecloud.experiments.scenarios import CpuPressure
+from edgecloud.experiments.pressure import CpuPressure
 from edgecloud.experiments.workers import DelayWorker, FailureWindowWorker, RequestTrace
 from edgecloud.inference.models import TimingMetrics
 from edgecloud.workers.errors import WorkerConnectionError

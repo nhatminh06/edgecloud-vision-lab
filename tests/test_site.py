@@ -31,6 +31,7 @@ def test_public_replay_is_real_capture() -> None:
 def test_site_is_static_and_loads_committed_replay() -> None:
     html = (ROOT / "site/index.html").read_text()
     javascript = (ROOT / "site/app.js").read_text()
+    styles = (ROOT / "site/styles.css").read_text()
 
     assert '<script src="app.js" defer></script>' in html
     assert "fetch(DATA_URL" in javascript
@@ -38,7 +39,16 @@ def test_site_is_static_and_loads_committed_replay() -> None:
     assert "Unsupported replay schema" in javascript
     assert "Sample replay" in html
     assert "Captured run" in html
+    assert "[hidden] { display: none !important; }" in styles
     assert not any(name in html.lower() for name in ("react", "next.js", "vite"))
+
+
+def test_readme_uses_a_real_viewer_screenshot() -> None:
+    readme = (ROOT / "README.md").read_text()
+    screenshot = ROOT / "docs/assets/edgecloud-replay.png"
+
+    assert "docs/assets/edgecloud-replay.png" in readme
+    assert screenshot.stat().st_size > 100_000
 
 
 def test_pages_workflow_deploys_only_static_site_and_replay() -> None:

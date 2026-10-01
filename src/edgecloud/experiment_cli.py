@@ -13,8 +13,8 @@ from edgecloud.experiments.environment import collect_environment
 from edgecloud.experiments.models import ExperimentConfig, FailureWindow
 from edgecloud.experiments.output import write_results
 from edgecloud.experiments.plots import generate_plots
+from edgecloud.experiments.pressure import CpuPressure, NoPressure
 from edgecloud.experiments.runner import ExperimentRunner
-from edgecloud.experiments.scenarios import CpuPressure, NoPressure
 from edgecloud.experiments.workers import (
     DelayWorker,
     FailureWindowWorker,
