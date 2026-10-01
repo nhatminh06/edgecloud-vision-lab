@@ -37,7 +37,7 @@ An `inference` event contains:
 - `fallback.used` and `fallback.reason`.
 - `workers.edge` and `workers.remote`, each containing `available` and `injected_delay_ms` for
   the active controlled profile.
-- `detections.count`; full detection payloads are intentionally excluded.
+- `detections.count`; full detection payloads are excluded.
 - `error`: an error type/message object for a failed frame, otherwise `null`.
 
 Injected delay is a configured demo condition. It is not model, hardware, transport, or network
@@ -51,7 +51,7 @@ the complete worker call.
 is emitted before inference at its configured boundary. Consumers should use these events for
 chart annotations instead of deriving transitions by comparing adjacent frames.
 
-The canonical `adaptive-failover` scenario changes at frames 0, 20, 50, and 70. Profiles alter
+The `adaptive-failover` scenario changes at frames 0, 20, 50, and 70. Profiles alter
 worker availability or delay only; they never directly choose a route.
 
 ## Static replay export

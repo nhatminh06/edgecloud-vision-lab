@@ -112,8 +112,8 @@ function renderCurrentFrame() {
   $("#frame-label").textContent = `frame ${event.frame_index} / ${maxFrame}`;
   $("#sequence-value").textContent = `#${String(event.sequence).padStart(3, "0")}`;
   $("#current-profile").textContent = event.profile.replaceAll("_", " ");
-  $("#selected-worker").textContent = event.decision.selected_worker || "—";
-  $("#executed-worker").textContent = event.decision.executed_worker || "—";
+  $("#selected-worker").textContent = event.decision.selected_worker || "n/a";
+  $("#executed-worker").textContent = event.decision.executed_worker || "n/a";
   $("#fallback-used").textContent = event.fallback.used ? "yes" : "no";
   $("#decision-reason").textContent = event.decision.reason || "unavailable";
   $("#fallback-reason").textContent = event.fallback.reason || "";
@@ -166,7 +166,7 @@ function renderTimeline() {
     const span = Math.max(1, end - phase.frame_index + 1);
     const condition = phaseCondition(phase.frame_index);
     return `<button class="phase" type="button" data-frame="${phase.frame_index}" data-profile="${phase.to_profile}" style="flex:${span}">
-      <strong>${escapeHtml(phase.to_profile.replaceAll("_", " "))}</strong><span>frames ${phase.frame_index}–${end}</span><span>${escapeHtml(condition)}</span></button>`;
+      <strong>${escapeHtml(phase.to_profile.replaceAll("_", " "))}</strong><span>frames ${phase.frame_index}-${end}</span><span>${escapeHtml(condition)}</span></button>`;
   }).join("");
   document.querySelectorAll(".phase").forEach((phase) => phase.addEventListener("click", () => selectNearestFrame(Number(phase.dataset.frame))));
 }
@@ -325,6 +325,6 @@ function handleKeyboard(event) {
 function countFallbacks() { return state.frames.filter((event) => event.fallback.used).length; }
 function countSwitches() { return state.frames.slice(1).filter((event, index) => event.decision.executed_worker !== state.frames[index].decision.executed_worker).length; }
 function displayModel(model) { return model === "ssdlite320_mobilenet_v3_large" ? "SSDLite320 MobileNet V3" : model; }
-function formatNumber(value, digits = 1) { return Number.isFinite(value) ? Number(value).toFixed(digits) : "—"; }
-function formatMs(value) { return Number.isFinite(value) ? `${formatNumber(value)} ms` : "—"; }
+function formatNumber(value, digits = 1) { return Number.isFinite(value) ? Number(value).toFixed(digits) : "n/a"; }
+function formatMs(value) { return Number.isFinite(value) ? `${formatNumber(value)} ms` : "n/a"; }
 function escapeHtml(value) { return String(value).replaceAll("&", "&amp;").replaceAll("<", "&lt;").replaceAll(">", "&gt;").replaceAll('"', "&quot;").replaceAll("'", "&#039;"); }

@@ -56,7 +56,7 @@ background threads sample edge and remote telemetry; inference reads cached snap
 collecting telemetry on the request path. Sampling failure preserves the last valid snapshot
 until it becomes stale and records the error.
 
-Pressure is normalized to `0.0`–`1.0`:
+Pressure is normalized to the range `0.0` to `1.0`:
 
 ```text
 CPU worker: max(CPU utilization, system memory utilization) / 100

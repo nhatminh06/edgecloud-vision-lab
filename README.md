@@ -2,10 +2,9 @@
 
 [![CI](https://github.com/nhatminh06/edgecloud-vision-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/nhatminh06/edgecloud-vision-lab/actions/workflows/ci.yml)
 
-EdgeCloud Vision Lab is a measured computer-vision inference system for comparing local and
-HTTP workers under multiple scheduling policies. It includes typed worker boundaries,
-telemetry-aware routing, controlled failure experiments, and a static viewer built from a real
-captured run.
+EdgeCloud Vision Lab compares computer-vision inference on local and HTTP workers. It includes
+six scheduling policies, worker telemetry, controlled failure tests, JSON Lines recording, and a
+static viewer for captured runs.
 
 [Open the captured replay](https://nhatminh06.github.io/edgecloud-vision-lab/) ·
 [Read the demo guide](docs/demo.md) · [Review the experiment format](docs/experiment-format.md)
@@ -14,25 +13,25 @@ captured run.
 
 The public viewer replays captured experiment data; it does not run inference in the browser.
 
-## What it demonstrates
+## Features
 
-- One inference contract across in-process edge and HTTP remote workers.
+- One result type for in-process edge and HTTP remote workers.
 - Six scheduler strategies, from strict baselines to health- and telemetry-aware routing.
 - Measured model, request, transport, and scheduler timing with explicit metric boundaries.
 - Controlled delay and availability changes kept separate from measured performance.
 - Typed failure handling with bounded fallback and observable routing decisions.
-- Reproducible JSON Lines experiments, replay export, and regression-tested static visualization.
+- JSON Lines experiment recording, replay export, and a tested static viewer.
 
 ## Canonical experiment
 
-The portfolio replay is a real 100-frame CPU capture using SSDLite320 MobileNet V3 Large. It
+The replay contains a 100-frame CPU run using SSDLite320 MobileNet V3 Large. It
 moves through `normal`, `edge_hot` (+150 ms controlled edge delay), `cloud_down`, and
 `recovered` phases. The outage produced five fallback events. Recovery restored remote
-availability, but retained EWMA state correctly caused no forced switch back to remote.
+availability. Retained EWMA state meant that the scheduler did not switch back to remote.
 
 Both workers shared one machine and the remote path used loopback HTTP. See the
 [adaptive-failover experiment note](docs/experiments/adaptive-failover.md) for configuration,
-observations, provenance, and interpretation.
+observations, source details, and limitations.
 
 ## Architecture
 
@@ -132,7 +131,7 @@ before export; its values are not hand-edited.
 - [Experiment framework](docs/experiments.md)
 - [JSONL and replay schema](docs/experiment-format.md)
 - [Capture and demo workflow](docs/demo.md)
-- [Canonical run analysis](docs/experiments/adaptive-failover.md)
+- [Captured run results](docs/experiments/adaptive-failover.md)
 
 ## Deployment
 
@@ -152,7 +151,7 @@ node --check site/app.js
 
 ## Limitations
 
-- The canonical capture ran both logical workers on one CPU machine.
+- The captured run used one CPU machine for both logical workers.
 - Remote measurements use loopback HTTP, not a regional or internet connection.
 - Scenario delays and outages are controlled inputs, not naturally occurring load.
 - One captured run is not a general hardware, model, scheduler, or cloud benchmark.

@@ -1,15 +1,15 @@
 # Recorded demo guide
 
-This walkthrough connects the real local system to the evidence shown by the static replay
-viewer. It deliberately changes worker conditions through safe `ControlledWorker` profiles; it
-does not burn CPU, alter machine configuration, stop external services, or expose credentials.
+This walkthrough records a local run and exports it for the static replay viewer. It changes
+worker conditions through `ControlledWorker` profiles. It does not burn CPU, alter machine
+configuration, stop external services, or expose credentials.
 
 Prepare the Python environment, model weights, input video, and browser tabs before recording.
-Use a video with at least 72 frames so every canonical scenario boundary occurs. Do not download
+Use a video with at least 72 frames so every scenario boundary occurs. Do not download
 weights, install packages, edit configuration, or enter secrets on camera. Begin the recorded
-walkthrough with the public viewer briefly visible, then move to the real system.
+walkthrough with the public viewer briefly visible, then move to the local run.
 
-The canonical public capture used an uncommitted 100-frame excerpt of OpenCV's public
+The public capture used an uncommitted 100-frame excerpt of OpenCV's public
 `vtest.avi` sample. Before recording, reproduce the input outside the repository:
 
 ```bash
@@ -37,7 +37,7 @@ edgecloud-run --help | grep adaptive-failover
 edgecloud-export-replay --help
 ```
 
-This verifies input decoding, local model initialization, output permissions, the canonical
+This verifies input decoding, local model initialization, output permissions, the recorded
 scenario, and the installed replay exporter. CUDA may replace CPU only when it is already
 configured and verified; never install or change GPU drivers for the recording.
 
@@ -73,7 +73,7 @@ edgecloud-run \
 
 Explain the observed sequence without predicting machine-dependent routing:
 
-1. Frames 0–19 use normal worker conditions. Edge and remote are each sampled once.
+1. Frames 0-19 use normal worker conditions. Edge and remote are each sampled once.
 2. At frame 20, `edge_hot` adds 150 ms of explicitly controlled edge delay. The scheduler
    continues choosing from measured EWMA values.
 3. At frame 50, `cloud_down` makes the controlled remote wrapper unavailable. If remote is
@@ -107,11 +107,10 @@ running in GitHub Pages.
 
 ## Recording presentation
 
-Keep the system, state changes, scheduler response, fallback, recovery, and exported evidence in
-one understandable flow. Minimal captions can identify a profile boundary or fallback. Avoid
-fake typing, cinematic transitions, decorative animation, and claims not supported by the
-recorded JSON.
+Show the state changes, scheduler response, fallback, recovery, and export in one sequence.
+Captions can identify a profile boundary or fallback. Avoid claims not supported by the recorded
+JSON.
 
 Generated recordings under `outputs/` remain untracked. Commit a validated replay export under
-`demo-data/` only when it is intentionally selected as the public artifact and clearly labeled
-as either a captured run or synthetic fixture.
+`demo-data/` only after it is selected for the public viewer and labeled as a captured run or
+synthetic fixture.

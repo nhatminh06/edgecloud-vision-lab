@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Static replay inspector for EdgeCloud Vision inference scheduling experiments.">
   <meta name="theme-color" content="#111417">
-  <title>EdgeCloud Vision — experiment replay</title>
+  <title>EdgeCloud Vision | experiment replay</title>
   <link rel="stylesheet" href="styles.css">
   <script src="app.js" defer></script>
 </head>
@@ -13,8 +13,8 @@
   <a class="skip-link" href="#workspace">Skip to experiment</a>
   <header class="topbar">
     <a class="identity" href="#workspace"><span class="mark" aria-hidden="true">EC</span><span>EdgeCloud Vision</span></a>
-    <div class="run-title"><strong id="top-scenario">loading replay</strong><span id="top-scheduler">—</span></div>
-    <div class="top-state"><span id="schema-label">schema —</span><span class="mode">Replay</span></div>
+    <div class="run-title"><strong id="top-scenario">loading replay</strong><span id="top-scheduler">n/a</span></div>
+    <div class="top-state"><span id="schema-label">schema n/a</span><span class="mode">Replay</span></div>
     <nav aria-label="Project links">
       <a href="https://github.com/nhatminh06/edgecloud-vision-lab">GitHub</a>
       <a href="https://github.com/nhatminh06/edgecloud-vision-lab/blob/main/docs/experiment-format.md">Format</a>
@@ -48,7 +48,7 @@
           <button id="play-button" type="button" aria-label="Play replay" aria-pressed="false">▶</button>
           <button id="next-button" type="button" aria-label="Next frame">▶|</button>
         </div>
-        <label class="scrubber-label" for="scrubber"><span id="frame-label">frame — / —</span>
+        <label class="scrubber-label" for="scrubber"><span id="frame-label">frame n/a</span>
           <input id="scrubber" type="range" min="0" max="0" value="0">
         </label>
         <fieldset class="speed-control"><legend>Speed</legend>
@@ -56,7 +56,7 @@
           <button class="active" type="button" data-speed="1" aria-pressed="true">1×</button>
           <button type="button" data-speed="2">2×</button>
         </fieldset>
-        <div class="position-readout"><span>EVENT</span><strong id="sequence-value">—</strong></div>
+        <div class="position-readout"><span>EVENT</span><strong id="sequence-value">n/a</strong></div>
       </section>
 
       <section class="phase-track panel" aria-labelledby="phase-heading">
@@ -72,15 +72,15 @@
         </aside>
 
         <section class="decision-panel panel" aria-labelledby="decision-heading">
-          <div class="panel-heading"><h2 id="decision-heading">Routing decision</h2><span id="current-profile">—</span></div>
+          <div class="panel-heading"><h2 id="decision-heading">Routing decision</h2><span id="current-profile">n/a</span></div>
           <div id="decision-bars" class="decision-bars"></div>
           <div class="decision-detail">
             <dl>
-              <div><dt>Selected</dt><dd id="selected-worker">—</dd></div>
-              <div><dt>Executed</dt><dd id="executed-worker">—</dd></div>
-              <div><dt>Fallback</dt><dd id="fallback-used">—</dd></div>
+              <div><dt>Selected</dt><dd id="selected-worker">n/a</dd></div>
+              <div><dt>Executed</dt><dd id="executed-worker">n/a</dd></div>
+              <div><dt>Fallback</dt><dd id="fallback-used">n/a</dd></div>
             </dl>
-            <div class="reason"><span>reason code</span><code id="decision-reason">—</code><p id="fallback-reason"></p></div>
+            <div class="reason"><span>reason code</span><code id="decision-reason">n/a</code><p id="fallback-reason"></p></div>
           </div>
         </section>
 
@@ -108,7 +108,7 @@
       </div>
 
       <section class="method-section" id="method">
-        <div class="section-label">Method / evidence</div>
+        <div class="section-label">Measurement types</div>
         <div class="method-grid">
           <article><h2>Measured</h2><p>Worker model timing, scheduler-observed request latency, and remote HTTP round-trip timing originate from worker execution.</p></article>
           <article><h2>Estimated</h2><p>Edge and remote EWMA values are scheduler state derived from prior successful observations.</p></article>
@@ -118,13 +118,13 @@
       </section>
 
       <section class="architecture-section" aria-labelledby="architecture-heading">
-        <div><div class="section-label">System path</div><h2 id="architecture-heading">Measurement produces the replay.</h2><p>EdgeCloud Vision compares local and HTTP inference under controlled conditions. Decisions and timings are recorded as evidence for later inspection.</p></div>
+        <div><div class="section-label">System path</div><h2 id="architecture-heading">From inference to replay</h2><p>EdgeCloud Vision records routing decisions and timings from local and HTTP inference under controlled conditions.</p></div>
         <div class="schematic" role="img" aria-label="Input enters a scheduler, routes to edge or remote model workers, and records JSON Lines that are exported to static replay JSON for GitHub Pages.">
           <div class="node">input</div><span>→</span><div class="node strong">scheduler</div><span>→</span><div class="fork"><div class="node edge-node">edge → model</div><div class="node remote-node">HTTP → remote → model</div></div><span>→</span><div class="node">recorder<br><small>JSONL → replay JSON</small></div>
         </div>
       </section>
 
-      <footer><p>EdgeCloud Vision is an ML-systems experiment for explainable routing across local and remote computer-vision workers.</p><a href="https://github.com/nhatminh06/edgecloud-vision-lab">Source and methodology</a></footer>
+      <footer><p>EdgeCloud Vision records scheduler behavior across local and remote computer-vision workers.</p><a href="https://github.com/nhatminh06/edgecloud-vision-lab">Source and method</a></footer>
     </div>
   </main>
 </body>

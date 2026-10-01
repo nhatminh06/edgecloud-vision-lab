@@ -1,10 +1,9 @@
-# Adaptive failover portfolio run
+# Adaptive failover run
 
 ## Purpose
 
-This canonical run tests whether the latency-aware scheduler responds to measured changes in
-worker conditions, exposes fallback during a controlled remote outage, and continues after
-worker recovery. The public replay is derived directly from the recorded JSON Lines stream.
+This run checks how the latency-aware scheduler responds to controlled worker changes, a remote
+outage, and recovery. The public replay was exported from the recorded JSON Lines stream.
 
 ## Configuration
 
@@ -30,10 +29,10 @@ Both logical workers ran on the same local CPU. The remote path used HTTP over
 ## Controlled phases
 
 ```text
-frames 0–19   normal       no injected delay; both workers available
-frames 20–49  edge_hot     +150 ms controlled delay before edge inference
-frames 50–69  cloud_down   remote controlled wrapper unavailable
-frames 70–99  recovered    controls reset; both workers available
+frames 0-19   normal       no injected delay; both workers available
+frames 20-49  edge_hot     +150 ms controlled delay before edge inference
+frames 50-69  cloud_down   remote controlled wrapper unavailable
+frames 70-99  recovered    controls reset; both workers available
 ```
 
 These controls change worker conditions only. They do not select a route or modify scheduler
@@ -57,7 +56,7 @@ observations reduced that estimate to 72.83 ms by frame 49.
 
 At frame 50 the profile changed to `cloud_down`. Remote was still the lower estimated route, so
 the scheduler selected remote, received the controlled unavailable failure, and executed edge as
-fallback. Frames 50–54 contain five such fallback events. Successful edge fallbacks updated the
+fallback. Frames 50-54 contain five such fallback events. Successful edge fallbacks updated the
 edge EWMA until edge became the lower estimate; the remaining outage frames executed directly on
 edge.
 

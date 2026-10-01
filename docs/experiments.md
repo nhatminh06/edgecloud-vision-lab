@@ -1,7 +1,7 @@
 # Experiment framework
 
-The experiment CLI runs repeatable scheduler workloads and preserves unfavorable or failed
-requests instead of filtering them from raw evidence.
+The experiment CLI runs repeated scheduler workloads. Raw output retains slow and failed
+requests.
 
 ## Single experiment
 
@@ -70,8 +70,7 @@ Each result directory contains:
 - `summary.json`: per-run and cross-run metrics; and
 - `summary.csv`: one row per run for analysis tools.
 
-Generated results remain ignored by Git unless a specific replay is deliberately selected as a
-public artifact.
+Generated results remain ignored by Git unless a replay is selected for the public viewer.
 
 ## Measurement definitions
 
@@ -92,7 +91,7 @@ public artifact.
 ## Stable replay recording
 
 `edgecloud-run --record` produces the versioned JSON Lines contract used by the static viewer.
-The canonical workflow, schema, and captured evidence are documented in:
+The recording workflow, schema, and captured run are documented in:
 
 - [Experiment format](experiment-format.md)
 - [Recorded demo guide](demo.md)
