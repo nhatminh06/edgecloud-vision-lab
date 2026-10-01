@@ -1,5 +1,9 @@
 class WorkerError(RuntimeError):
-    """Base class for remote worker failures."""
+    """Base class for worker failures."""
+
+
+class WorkerExecutionError(WorkerError):
+    """A worker accepted an inference request but could not execute it."""
 
 
 class WorkerTimeoutError(WorkerError):

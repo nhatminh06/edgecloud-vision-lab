@@ -11,6 +11,7 @@ from fastapi import Body, FastAPI, HTTPException, Request
 
 from edgecloud.inference.engine import InferenceEngine
 from edgecloud.inference.torchvision_backend import TorchvisionSSDLiteBackend
+from edgecloud.telemetry import TelemetryCollector
 from edgecloud.workers.edge import EdgeWorker
 from edgecloud.workers.models import InferenceWorker
 
@@ -27,6 +28,7 @@ class ServiceSettings:
 
 
 WorkerFactory = Callable[[], InferenceWorker]
+TelemetryFactory = Callable[[], TelemetryCollector]
 
 
 def default_worker_factory(settings: ServiceSettings) -> WorkerFactory:
@@ -47,12 +49,19 @@ def default_worker_factory(settings: ServiceSettings) -> WorkerFactory:
 def create_app(
     worker_factory: WorkerFactory | None = None,
     settings: ServiceSettings | None = None,
+    telemetry_factory: TelemetryFactory | None = None,
 ) -> FastAPI:
     configured = settings or ServiceSettings()
     factory = worker_factory or default_worker_factory(configured)
+    create_telemetry = telemetry_factory or TelemetryCollector
 
     @asynccontextmanager
     async def lifespan(app: FastAPI):
+        try:
+            app.state.telemetry = create_telemetry()
+        except (OSError, RuntimeError, ValueError):
+            app.state.telemetry = None
+            LOGGER.exception("telemetry collector initialization failed")
         try:
             app.state.worker = factory()
             app.state.initialization_error = None
@@ -61,10 +70,13 @@ def create_app(
             app.state.initialization_error = str(exc)
             LOGGER.exception("inference worker initialization failed")
         yield
+        if app.state.telemetry is not None:
+            app.state.telemetry.close()
 
     app = FastAPI(title="EdgeCloud Vision Worker", lifespan=lifespan)
     app.state.worker = None
     app.state.initialization_error = None
+    app.state.telemetry = None
 
     @app.get("/health")
     async def health() -> dict[str, object]:
@@ -100,6 +112,17 @@ def create_app(
         except (OSError, RuntimeError, ValueError) as exc:
             LOGGER.exception("inference request failed")
             raise HTTPException(status_code=500, detail="inference failed") from exc
+
+    @app.get("/telemetry")
+    async def telemetry() -> dict[str, object]:
+        collector = app.state.telemetry
+        if collector is None:
+            raise HTTPException(status_code=503, detail="telemetry collector is not available")
+        try:
+            return collector.collect().to_dict()
+        except (OSError, RuntimeError, ValueError) as exc:
+            LOGGER.exception("telemetry collection failed")
+            raise HTTPException(status_code=500, detail="telemetry collection failed") from exc
 
     return app
 

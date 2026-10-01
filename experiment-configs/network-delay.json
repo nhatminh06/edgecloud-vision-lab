@@ -1,0 +1,19 @@
+{
+  "name": "network-delay-development",
+  "input_path": "examples/input.jpg",
+  "measured_requests": 100,
+  "warmup_requests": 10,
+  "repetitions": 3,
+  "remote_url": "http://127.0.0.1:8000",
+  "schedulers": [
+    "edge_only",
+    "remote_only",
+    "round_robin",
+    "latency_aware",
+    "resource_aware",
+    "resilient"
+  ],
+  "delays_ms": [0, 25, 50, 100],
+  "output_dir": "results/network-delay-development",
+  "label": "development validation"
+}

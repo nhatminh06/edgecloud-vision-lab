@@ -13,6 +13,8 @@ dependencies = [
   "httpx>=0.28,<1",
   "numpy>=2.0,<3",
   "opencv-python-headless>=4.10,<5",
+  "nvidia-ml-py>=12.560,<14",
+  "psutil>=6,<8",
   "torch>=2.4,<3",
   "torchvision>=0.19,<1",
   "uvicorn>=0.34,<0.35",
@@ -23,12 +25,17 @@ dev = [
   "pytest>=8.3,<9",
   "ruff>=0.8,<1",
 ]
+experiment = [
+  "matplotlib>=3.9,<4",
+]
 
 [project.scripts]
 edgecloud-infer = "edgecloud.cli:main"
 edgecloud-remote-infer = "edgecloud.remote_cli:main"
 edgecloud-run = "edgecloud.scheduler_cli:main"
 edgecloud-serve = "edgecloud.service_cli:main"
+edgecloud-telemetry = "edgecloud.telemetry_cli:main"
+edgecloud-experiment = "edgecloud.experiment_cli:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/edgecloud"]

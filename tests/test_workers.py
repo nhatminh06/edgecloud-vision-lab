@@ -8,6 +8,7 @@ import pytest
 from edgecloud.inference.engine import InferenceEngine
 from edgecloud.inference.models import BoundingBox, Detection
 from edgecloud.workers.edge import EdgeWorker
+from edgecloud.workers.errors import WorkerExecutionError
 
 
 class FakeBackend:
@@ -43,3 +44,14 @@ def test_edge_worker_adapts_inference_result() -> None:
     assert result.detection_count == 1
     assert result.timing.total_ms == pytest.approx(6.0)
     assert result.round_trip_ms is None
+
+
+def test_edge_worker_exposes_recoverable_execution_failure_boundary() -> None:
+    class FailingBackend(FakeBackend):
+        def infer(self, model_input: tuple[int, ...]) -> tuple[int, ...]:
+            raise RuntimeError("backend unavailable")
+
+    worker = EdgeWorker(InferenceEngine(FailingBackend()), backend="fake")
+
+    with pytest.raises(WorkerExecutionError, match="execution failed"):
+        worker.infer(np.zeros((8, 8, 3), dtype=np.uint8))

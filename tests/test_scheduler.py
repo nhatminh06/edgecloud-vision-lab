@@ -8,6 +8,7 @@ import pytest
 from edgecloud.inference.models import BoundingBox, Detection, TimingMetrics
 from edgecloud.scheduler import (
     EdgeOnlyScheduler,
+    LatencyAwareScheduler,
     RemoteOnlyScheduler,
     RoundRobinScheduler,
     SchedulerStrategy,
@@ -140,6 +141,7 @@ def test_scheduled_result_composes_worker_result_and_metadata() -> None:
     assert result.selected_worker_type == "edge"
     assert result.scheduler_latency_ms >= 0
     assert result.worker_result.detection_count == 1
+    assert "latency_decision" not in result.to_dict()
 
 
 def test_scheduler_metrics_provide_totals_mean_and_percentages() -> None:
@@ -165,6 +167,7 @@ def test_scheduler_metrics_provide_totals_mean_and_percentages() -> None:
         ("edge_only", EdgeOnlyScheduler),
         ("remote_only", RemoteOnlyScheduler),
         ("round_robin", RoundRobinScheduler),
+        ("latency_aware", LatencyAwareScheduler),
     ],
 )
 def test_create_scheduler_accepts_valid_names(name: str, expected_type: type) -> None:

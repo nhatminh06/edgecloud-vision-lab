@@ -9,6 +9,9 @@ from edgecloud.inference.models import BoundingBox, Detection, TimingMetrics
 
 
 class InferenceWorker(Protocol):
+    worker_id: str
+    worker_type: str
+
     def infer(self, image: Image) -> WorkerResult: ...
 
 
@@ -20,6 +23,7 @@ class WorkerResult:
     worker_type: str
     backend: str
     round_trip_ms: float | None = None
+    injected_delay_ms: float = 0.0
 
     def __post_init__(self) -> None:
         if not self.worker_id:
@@ -30,6 +34,8 @@ class WorkerResult:
             raise ValueError("backend cannot be empty")
         if self.round_trip_ms is not None and self.round_trip_ms < 0:
             raise ValueError("round_trip_ms cannot be negative")
+        if self.injected_delay_ms < 0:
+            raise ValueError("injected_delay_ms cannot be negative")
 
     @property
     def detection_count(self) -> int:

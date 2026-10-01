@@ -1,0 +1,32 @@
+{
+  "name": "real-cloud-validation",
+  "input_path": "examples/input.jpg",
+  "measured_requests": 30,
+  "warmup_requests": 5,
+  "repetitions": 3,
+  "require_remote_url": true,
+  "schedulers": [
+    "edge_only",
+    "remote_only",
+    "round_robin",
+    "latency_aware",
+    "resource_aware",
+    "resilient"
+  ],
+  "delays_ms": [0],
+  "telemetry_interval": 1.0,
+  "health_interval": 1.0,
+  "resource_scenario": "normal",
+  "output_dir": "results/real-cloud",
+  "label": "real cloud validation",
+  "cloud_environment": {
+    "provider": "replace-before-run",
+    "region": "replace-before-run",
+    "instance_type": "replace-before-run",
+    "operating_system": "replace-before-run",
+    "architecture": "x86_64",
+    "cpu_model": "replace-before-run",
+    "vcpu_count": 0,
+    "total_memory_bytes": 0
+  }
+}

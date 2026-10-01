@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from collections.abc import AsyncIterator
 from contextlib import asynccontextmanager
+from datetime import UTC, datetime
 
 import cv2
 import httpx
@@ -10,6 +11,7 @@ import pytest
 
 from edgecloud.api import ServiceSettings, create_app
 from edgecloud.inference.models import BoundingBox, Detection, TimingMetrics
+from edgecloud.telemetry.models import SystemMetrics, TelemetrySnapshot
 from edgecloud.workers.models import WorkerResult
 
 pytestmark = pytest.mark.anyio
@@ -31,6 +33,26 @@ class FailingWorker:
         raise RuntimeError("internal implementation details")
 
 
+class FakeTelemetry:
+    def __init__(self, *, failure: bool = False) -> None:
+        self.failure = failure
+        self.closed = False
+
+    def collect(self) -> TelemetrySnapshot:
+        if self.failure:
+            raise RuntimeError("system metrics failed")
+        return TelemetrySnapshot(
+            timestamp=datetime(2026, 1, 1, tzinfo=UTC),
+            system=SystemMetrics(20, 4_000, 10_000, 40),
+            gpus=(),
+            gpu_telemetry_available=False,
+            gpu_telemetry_error="NVML unavailable",
+        )
+
+    def close(self) -> None:
+        self.closed = True
+
+
 def sample_result() -> WorkerResult:
     return WorkerResult(
         detections=(Detection(BoundingBox(1, 2, 3, 4), "object", 0.9, 1),),
@@ -48,8 +70,10 @@ def encoded_image() -> bytes:
 
 
 @asynccontextmanager
-async def api_client(worker_factory, settings=None) -> AsyncIterator[httpx.AsyncClient]:
-    app = create_app(worker_factory, settings)
+async def api_client(
+    worker_factory, settings=None, telemetry_factory=lambda: FakeTelemetry()
+) -> AsyncIterator[httpx.AsyncClient]:
+    app = create_app(worker_factory, settings, telemetry_factory)
     async with app.router.lifespan_context(app):
         transport = httpx.ASGITransport(app=app)
         async with httpx.AsyncClient(transport=transport, base_url="http://worker.test") as client:
@@ -125,3 +149,23 @@ async def test_infer_does_not_expose_inference_failure_details() -> None:
 
     assert response.status_code == 500
     assert response.json() == {"detail": "inference failed"}
+
+
+async def test_telemetry_returns_system_only_snapshot() -> None:
+    async with api_client(lambda: FakeWorker()) as client:
+        response = await client.get("/telemetry")
+
+    assert response.status_code == 200
+    assert response.json()["system"]["cpu_utilization_percent"] == 20
+    assert response.json()["gpus"] == []
+    assert response.json()["gpu_telemetry_available"] is False
+
+
+async def test_telemetry_collector_failure_returns_service_error() -> None:
+    async with api_client(
+        lambda: FakeWorker(), telemetry_factory=lambda: FakeTelemetry(failure=True)
+    ) as client:
+        response = await client.get("/telemetry")
+
+    assert response.status_code == 500
+    assert response.json() == {"detail": "telemetry collection failed"}

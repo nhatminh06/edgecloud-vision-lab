@@ -8,6 +8,7 @@ import cv2
 import httpx
 
 from edgecloud.inference.engine import Image
+from edgecloud.telemetry.models import TelemetrySnapshot
 from edgecloud.workers.errors import (
     WorkerConnectionError,
     WorkerHTTPError,
@@ -83,6 +84,24 @@ class RemoteWorker:
             backend=backend,
             round_trip_ms=round_trip_ms,
         )
+
+    def telemetry(self) -> TelemetrySnapshot:
+        try:
+            response = self._client.get("/telemetry")
+        except httpx.TimeoutException as exc:
+            raise WorkerTimeoutError("remote telemetry request timed out") from exc
+        except httpx.RequestError as exc:
+            raise WorkerConnectionError("remote telemetry connection failed") from exc
+        if not response.is_success:
+            raise WorkerHTTPError(response.status_code)
+        try:
+            payload = response.json()
+        except json.JSONDecodeError as exc:
+            raise WorkerResponseError("remote worker returned malformed telemetry JSON") from exc
+        try:
+            return TelemetrySnapshot.from_dict(payload)
+        except ValueError as exc:
+            raise WorkerResponseError("remote worker returned invalid telemetry") from exc
 
     def close(self) -> None:
         if self._owns_client:

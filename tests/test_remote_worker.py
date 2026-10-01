@@ -38,6 +38,21 @@ def result_payload() -> dict[str, object]:
     }
 
 
+def telemetry_payload() -> dict[str, object]:
+    return {
+        "timestamp": "2026-01-01T00:00:00+00:00",
+        "system": {
+            "cpu_utilization_percent": 25.0,
+            "memory_used_bytes": 4_000,
+            "memory_total_bytes": 10_000,
+            "memory_utilization_percent": 40.0,
+        },
+        "gpus": [],
+        "gpu_telemetry_available": False,
+        "gpu_telemetry_error": "NVML unavailable",
+    }
+
+
 def worker_for(handler: httpx.MockTransport) -> RemoteWorker:
     client = httpx.Client(transport=handler, base_url="http://worker.test")
     return RemoteWorker("http://worker.test", client=client)
@@ -137,3 +152,41 @@ def test_remote_health_reports_unreachable() -> None:
 
     assert result.status is HealthStatus.UNREACHABLE
     assert result.round_trip_ms is None
+
+
+def test_remote_worker_parses_valid_telemetry() -> None:
+    worker = worker_for(
+        httpx.MockTransport(lambda request: httpx.Response(200, json=telemetry_payload()))
+    )
+
+    snapshot = worker.telemetry()
+
+    assert snapshot.system.cpu_utilization_percent == 25
+    assert snapshot.gpus == ()
+    assert snapshot.gpu_telemetry_available is False
+
+
+def test_remote_worker_rejects_malformed_telemetry() -> None:
+    worker = worker_for(httpx.MockTransport(lambda request: httpx.Response(200, json={})))
+
+    with pytest.raises(WorkerResponseError, match="invalid telemetry"):
+        worker.telemetry()
+
+
+def test_remote_telemetry_reports_http_failure() -> None:
+    worker = worker_for(httpx.MockTransport(lambda request: httpx.Response(500)))
+
+    with pytest.raises(WorkerHTTPError) as raised:
+        worker.telemetry()
+
+    assert raised.value.status_code == 500
+
+
+def test_remote_telemetry_reports_unreachable_service() -> None:
+    def connection_error(request: httpx.Request) -> httpx.Response:
+        raise httpx.ConnectError("failed", request=request)
+
+    worker = worker_for(httpx.MockTransport(connection_error))
+
+    with pytest.raises(WorkerConnectionError):
+        worker.telemetry()
